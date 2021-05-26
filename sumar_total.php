@@ -31,7 +31,6 @@ $aProductos[] = array("nombre" => "Impresora HP laser",
 );
 
 
-
 ?>
 
 <!DOCTYPE html>
