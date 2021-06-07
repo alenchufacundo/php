@@ -1,20 +1,21 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-if($_POST){ /*esto quiere decir si es POSTBACK, es decir, si alguien hace click en el boton enviar*/
-    //print_r($_POST); /*IMPRIME LOS DATOS DEL SUBMIT DEL FORMULARIO*/
-    //print_r($_GET); /*IMPRIME LOS DATOS DE LA QUERY STRING*/
-    //print_r($_REQUEST); /*imprime tanto lo de get como lo de post*/
+    if ($_POST){ //si alguien clickea en enviar
 
-    $usuario = $_REQUEST["txtUsuario"];
-    $clave = $_REQUEST["txtClave"];
+        $usuario = $_REQUEST["txtUsuario"];
+        $clave= $_REQUEST["txtClave"];
 
-    echo "El usuario $usuario ha ingresado correctamente";
-    exit;
-
-}
-
-
+        if($usuario != "" && $clave != ""){ //Si $usuario y $clave es distinto de vacio entonces:
+            header("Location: acceso-confirmado.php");
+        } else {
+            $mensaje = "Válido para usuarios registrados";
+        }
+    }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="es">
@@ -36,14 +37,18 @@ if($_POST){ /*esto quiere decir si es POSTBACK, es decir, si alguien hace click 
             </div>
         </div>
         <div class="row">
+            <?php  if (isset($mensaje) && $mensaje != ""){
+                echo '<div class="alert alert-danger" role="alert">' . $mensaje . "</div>";
+            }
+        ?>
             <div class="col-12">
                 <form action="" method="POST">
                     <div>
-                        <label for="txtUsuario">Usuario: <input type="text" name="txtUsuario" id="txtUsuario"
+                        <label for="">Usuario: <input type="text" name="txtUsuario" id="txtUsuario"
                                 class="form-control"></label>
                     </div>
                     <div>
-                        <label for="txtClave">Clave: <input type="password" name="txtClave" id="txtClave"
+                        <label for="">Clave: <input type="password" name="txtClave" id="txtClave"
                                 class="form-control"></label>
                     </div>
                     <div>

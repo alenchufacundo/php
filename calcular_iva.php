@@ -57,12 +57,12 @@ if($_POST){
                         </label>
                     </div>
                     <div class="my-3">
-                        <label for="">Pecio sin IVA:
+                        <label for="">Precio sin IVA:
                             <input type="text" name="txtImporteSinIva" id="txtImporteSinIva" class="form-control">
                         </label>
                     </div>
                     <div class="my-3">
-                        <label for="">Pecio con IVA:
+                        <label for="">Precio con IVA:
                             <input type="text" name="txtImporteConIva" id="txtImporteConIva" class="form-control">
                         </label>
                     </div>
@@ -78,11 +78,11 @@ if($_POST){
                         <td>$<?php echo $iva; ?></td>
                     </tr>
                     <tr>
-                        <th>Pecio sin IVA:</th>
+                        <th>Precio sin IVA:</th>
                         <td>$<?php echo $resPrecioSinIva; ?></td>
                     </tr>
                     <tr>
-                        <th>Pecio con IVA:</th>
+                        <th>Precio con IVA:</th>
                         <td>$<?php echo $resPrecioConIva; ?></td>
                     </tr>
                     <tr>
