@@ -9,7 +9,6 @@ $aAlumnos[] = array("nombre" => "Juan Perez", "nota1" => 9, "nota2" => 8);
 $aAlumnos[] = array("nombre" => "Ana Valle", "nota1" => 4, "nota2" => 9);
 $aAlumnos[] = array("nombre" => "Gonzalo Roldán", "nota1" => 7, "nota2" => 6);
 
-
 ?>
 
 <!DOCTYPE html>
