@@ -14,6 +14,7 @@ error_reporting(E_ALL);
             $mensaje = "Válido para usuarios registrados";
         }
     }
+
 ?>
 
 
