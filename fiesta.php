@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 
 $aInvitados = array("pepe", "ana", "maca", "juan");
 $mensaje = array("bienvid@ a la fiesta", "no se encuentra en la lista de invitados", "aqui tiene su pulsera", "usted no tiene pase vip");
+$estado = array("success", "danger");
 $aColor= array ("verde");
 
 if ($_POST["boton"] == "invitado") { 
@@ -32,6 +33,7 @@ if ($_POST["boton"] == "proVIP") {
     }
 }
 
+print_r ($_POST)
 
 ?>
 

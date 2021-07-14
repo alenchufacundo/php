@@ -91,15 +91,18 @@ if ($id != "" && isset($_REQUEST["do"]) && $_REQUEST["do"] == "eliminar") {
 ?>
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABM Clientes</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="css/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="css/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="css/estilos.css">
 </head>
+
 <body>
     <div class="container">
         <div class="row">
@@ -118,7 +121,8 @@ if ($id != "" && isset($_REQUEST["do"]) && $_REQUEST["do"] == "eliminar") {
                         <?php endif;?>
                         <div class="col-12 form-group">
                             <label for="txtDni">DNI: *</label>
-                            <input type="text" id="txtDni" name="txtDni" class="form-control" required value="<?php echo isset($aClientes[$id]) ? $aClientes[$id]["dni"] : "" ?>">
+                            <input type="text" id="txtDni" name="txtDni" class="form-control" required
+                                value="<?php echo isset($aClientes[$id]) ? $aClientes[$id]["dni"] : "" ?>">
                         </div>
                         <div class="col-12 form-group">
                             <label for="txtNombre">Nombre: *</label>
@@ -137,13 +141,15 @@ if ($id != "" && isset($_REQUEST["do"]) && $_REQUEST["do"] == "eliminar") {
                         </div>
                         <div class="col-12 form-group">
                             <label for="txtCorreo">Archivo adjunto:</label>
-                            <input type="file" id="archivo" name="archivo" class="form-control-file" accept=".jpg, .jpeg, .png">
+                            <input type="file" id="archivo" name="archivo" class="form-control-file"
+                                accept=".jpg, .jpeg, .png">
                             <small class="d-block">Archivos admitidos: .jpg, .jpeg, .png</small>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12 mt-3">
-                            <button type="submit" id="btnGuardar" name="btnGuardar" class="btn btn-primary">Guardar</button>
+                            <button type="submit" id="btnGuardar" name="btnGuardar"
+                                class="btn btn-primary">Guardar</button>
                         </div>
                     </div>
                 </form>
@@ -160,16 +166,16 @@ if ($id != "" && isset($_REQUEST["do"]) && $_REQUEST["do"] == "eliminar") {
                     <?php
 
                     foreach ($aClientes as $pos => $cliente): ?>
-                        <tr>
-                            <td><img src="imagenes/<?php echo $cliente["imagen"]; ?>" class="img-thumbnail"></td>
-                            <td><?php echo $cliente["dni"]; ?></td>
-                            <td><?php echo $cliente["nombre"]; ?></td>
-                            <td><?php echo $cliente["correo"]; ?></td>
-                            <td style="width: 110px;">
-                                <a href="index.php?id=<?php echo $pos; ?>"><i class="fas fa-edit"></i></a>
-                                <a href="index.php?id=<?php echo $pos; ?>&do=eliminar"><i class="fas fa-trash-alt"></i></a>
-                            </td>
-                        </tr>
+                    <tr>
+                        <td><img src="imagenes/<?php echo $cliente["imagen"]; ?>" class="img-thumbnail"></td>
+                        <td><?php echo $cliente["dni"]; ?></td>
+                        <td><?php echo $cliente["nombre"]; ?></td>
+                        <td><?php echo $cliente["correo"]; ?></td>
+                        <td style="width: 110px;">
+                            <a href="index.php?id=<?php echo $pos; ?>"><i class="fas fa-edit"></i></a>
+                            <a href="index.php?id=<?php echo $pos; ?>&do=eliminar"><i class="fas fa-trash-alt"></i></a>
+                        </td>
+                    </tr>
                     <?php endforeach;?>
                 </table>
                 <a href="index.php"><i class="fas fa-plus"></i></a>
@@ -177,4 +183,5 @@ if ($id != "" && isset($_REQUEST["do"]) && $_REQUEST["do"] == "eliminar") {
         </div>
     </div>
 </body>
+
 </html>

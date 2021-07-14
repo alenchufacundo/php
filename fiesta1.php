@@ -9,10 +9,25 @@ $mensaje2 = "";
 $estado = "";
 $aColor= "verde";
 
+//carga la variable con las imagenes de tu carpeta
+$aImagenes = scandir("imagenes");
+unset ($aImagenes[0]);
+unset ($aImagenes[1]);
+
 if ($_POST["boton"] == "invitado") { 
 
     $usuario = $_REQUEST["usuario"];
     $clave = $_REQUEST["clave"];
+
+    //si viene la imagen
+    if ($_FILES["archivo"]["error"] === UPLOAD_ERR_OK) { //este if nos dice si se subio o no una imagen
+        $nombreAleatorio = date("Ymdhmsi") . rand(1000, 5000);
+        $archivo_tmp = $_FILES["archivo"]["tmp_name"];
+        $nombreArchivo = $_FILES["archivo"]["name"];
+        $extension = pathinfo($nombreArchivo, PATHINFO_EXTENSION);
+        $nuevoNombre = "$nombreAleatorio.$extension";
+        move_uploaded_file($archivo_tmp, "imagenes/$nuevoNombre");
+    }
 
     if($clave == "" && in_array($usuario, $aInvitados)){
         $mensaje1 = "Bienvenido a la fiesta";
@@ -37,6 +52,7 @@ if ($_POST["boton"] == "proVIP") {
         $estado = "danger";
     }
 }
+
 
 ?>
 
@@ -76,6 +92,7 @@ if ($_POST["boton"] == "proVIP") {
                     <div class="col-12 pt-2 pb-2">
                         <label for="">Nombre:</label>
                         <input type="text" name="usuario" id="usuario" class="form-control" style="width:150px">
+                        <input type="file" name="fileimagen" id="fileimagen">
                     </div>
                     <div class="col-12 pt-3 pb-2">
                         <button type="submit" value="invitado" name="boton" id="boton" class="btn btn-primary">Procesar
@@ -91,6 +108,14 @@ if ($_POST["boton"] == "proVIP") {
                 </div>
                 </div>
             </form>
+        </div>
+        <div class="col-6">
+            <table class="table table-hover border">
+                <tr>
+                    <th>Imagen</th>
+                </tr>          
+            </table>
+        
         </div>
     </main>
 
