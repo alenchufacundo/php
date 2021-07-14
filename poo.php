@@ -61,5 +61,4 @@ $alumno2 -> notaPhp = 8;
 $alumno2 -> notaProyecto = 9;
 $alumno2 ->imprimir();
 
-
 ?>
