@@ -8,20 +8,19 @@ session_start();
 
 $claveEncriptada = password_hash("admin123", PASSWORD_DEFAULT);
 
+if ($_POST) { //si es postback entonces
 
-if($_POST){ //si es postback entonces
-
-    $usuario = ($_REQUEST)["txtUsuario"];
-    $clave = ($_REQUEST)["txtClave"];
+    $usuario = ($_POST)["txtUsuario"];
+    $clave = ($_POST)["txtClave"];
 
     //comprobamos que el usuario sea admin y la clave sea 123
-    if($usuario == "admin" && $password_verify($clave, $claveEncriptada)){
-        $SESSION["nombre"] = "Facundo"; //creamos variable session
-        header ("Location: index.php"); //redireccionamos a index.php
-      } else { //sino
-        $msg ="Usuario o clave incorrecto"; //mostrar esto en pantalla
-      }
-  }
+    if ($usuario == "admin" && password_verify($clave, $claveEncriptada)) {
+        $_SESSION["nombre"] = "Facundo"; //creamos variable session
+        header("Location: index.php"); //redireccionamos a index.php
+    } else { //sino
+        $msg = "Usuario o clave incorrecto"; //mostrar esto en pantalla
+    }
+}
 
 ?>
 <!DOCTYPE html>
@@ -39,9 +38,7 @@ if($_POST){ //si es postback entonces
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -68,19 +65,16 @@ if($_POST){ //si es postback entonces
                                         <h1 class="h4 text-gray-900 mb-4">Bienvenido</h1>
                                     </div>
                                     <form action="" method="POST" class="user">
-                                        <?php if(isset($msg)): ?>
-                                        <div class="alert alert-danger" role="alert">
-                                            <?php echo $msg; ?>
-                                        </div>
+                                        <?php if (isset($msg)) : ?>
+                                            <div class="alert alert-danger" role="alert">
+                                                <?php echo $msg; ?>
+                                            </div>
                                         <?php endif; ?>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="txtUsuario"
-                                                name="txtUsuario" aria-describedby="emailHelp" placeholder="Usuario"
-                                                value="">
+                                            <input type="text" class="form-control form-control-user" id="txtUsuario" name="txtUsuario" aria-describedby="emailHelp" placeholder="Usuario" value="">
                                         </div>
                                         <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="txtClave"
-                                                name="txtClave" placeholder="Clave" value="">
+                                            <input type="password" class="form-control form-control-user" id="txtClave" name="txtClave" placeholder="Clave" value="">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">

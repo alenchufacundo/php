@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 //definiendo clases
 
-    class Persona {
+    abstract class Persona {
         protected $dni;
         protected $nombre;
         protected $edad;
@@ -24,7 +24,7 @@ error_reporting(E_ALL);
         public function getNacionalidad(){return $this -> nacionalidad;}
 
 
-        public function imprimir (){}
+        abstract public function imprimir ();
     }
     
 

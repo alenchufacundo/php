@@ -68,7 +68,6 @@ class Usuario {
                 apellido = ".$this->apellido.",
                 correo = ".$this->correo."
                 WHERE idusuario = " . $this->idusuario;
-          
         if (!$mysqli->query($sql)) {
             printf("Error en query: %s\n", $mysqli->error . " " . $sql);
         }

@@ -1,9 +1,9 @@
 <?php
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL)
+error_reporting(E_ALL);
 
-class Persona{
+    class Persona{
     protected $dni;
     protected $nombre;
     protected $correo;
@@ -31,7 +31,7 @@ class Persona{
         private $aClases;
 
         public function __construct($dni, $nombre, $correo, $celular) {
-            parent::__construct($dni, $nombre, $correo, $celular);
+            parent::__construct($dni, $nombre, $correo, $celular); //reutiliza el constructor de la clase padre, es decir la clase Persona
             $this->aClases = array();
         }
     
@@ -104,14 +104,19 @@ class Persona{
             $this->aAlumnos[] = $alumno;
         }
 
-}
 
 public function imprimirListado(){
-    
-
-
-
-
+    echo "<table class='table table-bordered table-striped table-hover'>";
+        echo "<tr><th class='table-dark text-center' colspan='4'>Clase: " . $this->nombre . "</th></tr>";
+        echo "<tr><th colspan='2'>Entrenador:</th><td colspan='2'>" . $this->entrenador->nombre . "</td></tr>";
+        echo "<tr><th colspan='4'>Alumnos inscritos:</th></tr>";
+        echo "<tr><th>DNI</th><th>Nombre</th><th>Correo</th><th>Celular</th>";
+        foreach($this->aAlumnos as $alumno){
+            echo "<tr><td>" . number_format($alumno->dni, 0, ",", ".") . "</td><td>" . $alumno->nombre . "</td><td>" . $alumno->correo . "</td><td>" . $alumno->celular . "</td></tr>"; 
+        }
+        echo "</table>";
+    }
+}
 
 
 
